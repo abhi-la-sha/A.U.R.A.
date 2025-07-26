@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AURA Cyber-Threat Fusion Design System
+Dark futuristic theme inspired by cyber security dashboards
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark cyber theme */
+    --background: 220 15% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 15% 6%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 15% 6%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Cyber blue primary */
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 15% 4%;
+
+    /* Secondary dark panels */
+    --secondary: 220 15% 8%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 15% 10%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 15% 4%;
+
+    /* Threat red */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 10%;
+    --ring: 200 100% 50%;
+
+    /* Custom cyber theme colors */
+    --cyber-green: 120 100% 40%;
+    --cyber-orange: 30 100% 60%;
+    --threat-red: 0 100% 60%;
+    --warning-yellow: 50 100% 60%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-threat: linear-gradient(135deg, hsl(var(--threat-red)), hsl(var(--cyber-orange)));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(220 15% 2%));
+    
+    /* Glows */
+    --glow-cyber: 0 0 20px hsl(var(--primary) / 0.5);
+    --glow-threat: 0 0 20px hsl(var(--threat-red) / 0.5);
+    --glow-accent: 0 0 15px hsl(var(--accent) / 0.4);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 15% 6%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 220 15% 4%;
+    --sidebar-accent: 220 15% 8%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 200 100% 50%;
+  }
+
+  .dark {
+    /* Dark mode uses same colors as our cyber theme */
+    --background: 220 15% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 15% 6%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 15% 6%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 15% 4%;
+
+    --secondary: 220 15% 8%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 15% 10%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 15% 4%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 10%;
+    --ring: 200 100% 50%;
+    
+    /* Cyber theme colors for dark mode */
+    --cyber-green: 120 100% 40%;
+    --cyber-orange: 30 100% 60%;
+    --threat-red: 0 100% 60%;
+    --warning-yellow: 50 100% 60%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-threat: linear-gradient(135deg, hsl(var(--threat-red)), hsl(var(--cyber-orange)));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(220 15% 2%));
+    
+    /* Glows */
+    --glow-cyber: 0 0 20px hsl(var(--primary) / 0.5);
+    --glow-threat: 0 0 20px hsl(var(--threat-red) / 0.5);
+    --glow-accent: 0 0 15px hsl(var(--accent) / 0.4);
+
+    --sidebar-background: 220 15% 6%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 220 15% 4%;
+    --sidebar-accent: 220 15% 8%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 200 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    background: var(--gradient-background);
+  }
+
+  /* Cyber animations */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    animation: scan 2s linear infinite;
+  }
+
+  .threat-pulse {
+    animation: threat-pulse 1s ease-in-out infinite;
+  }
+
+  .data-stream {
+    animation: data-stream 4s linear infinite;
+  }
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-card/80 backdrop-blur-md border border-primary/20 rounded-lg;
+    box-shadow: var(--glow-cyber);
+  }
+
+  .threat-indicator {
+    @apply bg-destructive/20 border border-destructive/50 rounded-full;
+    box-shadow: var(--glow-threat);
+    animation: threat-pulse 1s ease-in-out infinite;
+  }
+
+  .data-node {
+    @apply bg-primary/20 border border-primary/50 rounded-full;
+    box-shadow: var(--glow-cyber);
+  }
+}
+
+@keyframes pulse-glow {
+  0% { 
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    transform: scale(1);
+  }
+  100% { 
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.8);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan {
+  0% { 
+    left: -100%;
+  }
+  100% { 
+    left: 100%;
+  }
+}
+
+@keyframes threat-pulse {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes data-stream {
+  0% { 
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
