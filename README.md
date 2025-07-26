@@ -67,96 +67,22 @@ The AURA dashboard consists of four main components:
 | **State & Data Management**   | **React Query**               | Server state management and caching.                |
 |                               | **React Hook Form**           | Performant and flexible form handling.              |
 |                               | **Zod**                       | TypeScript-first schema validation.                 |
+| **Backend**                   | **Python Scripts**            | For Log analysis and detection                      |
+|                               | **Gemini LLM API**            | For Structured gemini responses and asking questions|
+
+
 
 ## 🏗️ Architecture & Data Flow
 
-### High-Level Architecture
-```
-graph TB
-    subgraph "Frontend Layer"
-        A[React Dashboard] --> B[3D Globe Visualization]
-        A --> C[Threat Statistics]
-        A --> D[Live Ticker]
-        A --> E[3D Heatmap]
-    end
+### System Architecture
 
-    subgraph "Visualization Engine"
-        B --> F[Three.js/React-Three-Fiber]
-        E --> F
-        F --> G[WebGL Renderer]
-    end
+<img width="3840" height="2703" alt="System architecture" src="https://github.com/user-attachments/assets/75970568-99eb-4926-a684-295713cff603" />
 
-    subgraph "Data Processing"
-        H[Mock Data Generator] --> I[Threat Event Processor]
-        I --> J[Severity Classifier]
-        I --> K[Geographic Mapper]
-    end
-
-    subgraph "State Management"
-        L[React State] --> M[Event Store]
-        M --> N[Real-time Updates]
-    end
-
-    H --> A
-    J --> A
-    K --> A
-
-    style A fill:#e1f5fe
-    style F fill:#f3e5f5
-    style I fill:#e8f5e8
-```
-
-### Component Architecture
-```
-graph TD
-    A[AuraDashboard] --> B[ThreatStats]
-    A --> C[ThreatGlobe]
-    A --> D[LiveTicker]
-    A --> E[ThreatHeatmap]
-
-    C --> F[Globe3D]
-    C --> G[ThreatConnections]
-    C --> H[EnergyCore]
-    C --> I[ParticleSystem]
-
-    E --> J[Heatmap3D]
-    E --> K[HeatmapBar]
-    E --> L[AxisLabels]
-
-    B --> M[StatCard]
-    B --> N[SystemStatus]
-
-    D --> O[EventFeed]
-    D --> P[EventItem]
-
-    style A fill:#ff6b6b
-    style C fill:#4ecdc4
-    style E fill:#45b7d1
-    style B fill:#96ceb4
-    style D fill:#feca57
-```
 
 ### Real-Time Data Flow
-```
-sequenceDiagram
-    participant DG as Data Generator
-    participant EP as Event Processor
-    participant DS as Dashboard State
-    participant TG as Threat Globe
-    participant TH as Threat Heatmap
-    participant TS as Threat Stats
-    participant LT as Live Ticker
 
-    DG->>EP: Generate Threat Event
-    EP->>EP: Process & Classify
-    EP->>DS: Update Event Store
-    DS->>TG: Stream Events
-    DS->>TH: Update Heatmap Data
-    DS->>TS: Calculate Statistics
-    DS->>LT: Add to Feed
+<img width="2560" height="3840" alt="Workflow diag" src="https://github.com/user-attachments/assets/bfe2a0eb-89ea-45ce-b3e5-e2cfe8e273e9" />
 
-    Note over TG,LT: Real-time UI Updates
-```
 
 ## 🛠️ Installation & Setup
 
