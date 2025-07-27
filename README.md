@@ -1,4 +1,11 @@
-
+## About this fork
+This fork highlights my personal backend contributions to the hackathon project [A.U.R.A.](https://github.com/TishaaC1/A.U.R.A./tree/main).
+I implemented the entire backend including:
+- Threat log processing
+- threat detection
+- llm analysis
+Main repository link: [https://github.com/TishaaC1/A.U.R.A./tree/main](https://github.com/TishaaC1/A.U.R.A./tree/main) 
+  
 # PROJECT AURA - Cyber-Financial Threat Fusion Platform
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![Version](https://img.shields.io/badge/Version-1.0.0-blue) ![React](https://img.shields.io/badge/React-18.3.1-61dafb) ![Three.js](https://img.shields.io/badge/Three.js-0.168.0-000000)
