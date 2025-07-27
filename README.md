@@ -50,6 +50,9 @@ The AURA dashboard consists of four main components:
     -   Analysis tools.
     -   System status and timestamp.
 
+![dashboard](https://github.com/user-attachments/assets/a51756c3-6d3c-4659-b27e-f0bf2e5e104b)
+
+
 ## 🚀 Technology Stack
 
 | Category                      | Technology / Library          | Description                                         |
